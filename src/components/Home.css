@@ -1,0 +1,66 @@
+.home-container {
+  margin-bottom: 30px;
+  margin-left: 400px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-color: aliceblue;
+  border-radius: 4em 0;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.home-container:hover{
+  /* background-color: black; */
+  transform: scale(1.15);
+}
+.title {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color:whitesmoke;
+
+  font-variant: small-caps;
+}
+.description {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 600;
+  color:whitesmoke;
+
+  font-variant: small-caps;
+}
+.username {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 600;
+  color:whitesmoke;
+  text-align: end;
+  font-variant: small-caps;
+}
+.date {
+  font-weight: 500;
+  color:whitesmoke;
+  text-align: right;
+}
+
+.Button-User{
+  display: inline-block;
+
+}
+.USER-Edit{
+  border-radius: 10px;
+}
+.Edit-Content{
+  font-variant: small-caps;
+  color: whitesmoke;
+}
+.User-Blog{
+  font-variant: small-caps;
+  color: whitesmoke;
+  font-family: 'Lemon', serif;
+  font-weight: 900;
+  
+}
+@media (max-width: 991.98px) {
+  .home-container {
+    margin-top: 10px;
+    margin-left: 20px;
+    justify-items: center;
+  }
+}

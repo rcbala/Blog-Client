@@ -1,0 +1,61 @@
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #FFDEE9;
+    background-image: linear-gradient(211deg, #FFDEE9 0%, #B5FFFC 100%);
+}
+
+.SignUp {
+    font-style: italic;
+    font-weight: 900;
+    font-variant: small-caps;
+
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #007bff;
+    margin-top: 20px;
+
+}
+
+button:hover {
+    background-color: #a9daf2;
+
+}
+
+.error-message {
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+
+.Login a {
+    text-decoration: none;
+    color: green;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

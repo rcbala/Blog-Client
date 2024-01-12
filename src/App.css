@@ -1,0 +1,7 @@
+body {
+
+      /* background-color: rgb(204, 247, 247); */
+      background-image: url("./image2.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+}
