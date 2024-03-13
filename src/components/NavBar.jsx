@@ -4,6 +4,7 @@ import { Navbar as BootstrapNavbar, Button, Nav } from 'react-bootstrap';
 import './NavBar.css'; 
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import images from "../../public/images.png"
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ const Navbar = () => {
         
           <Col xs={1} md={1}>
             <Nav.Link as={Link} to="/User">
-              <Image src='' roundedCircle style={{ width: '40px' }} />
+              <Image src={images} roundedCircle style={{ width: '40px' }} />
               </Nav.Link>
         </Col>
         </Nav>
