@@ -20,7 +20,7 @@ const AddBlog = ({userBlog,setuserBlog}) => {
             description,
         }
 
-        const res = await fetch("http://localhost:3000/blog/notes/create/blog", {
+        const res = await fetch("https://capstone-1-vpgi.onrender.com/blog/notes/create/blog", {
             
             method: "POST",
             body: JSON.stringify(newBlog),
@@ -29,7 +29,7 @@ const AddBlog = ({userBlog,setuserBlog}) => {
                 "x-auth-token": token,
             }
         })
-
+                   
         const data = await res.json();
         if (!data.data) {
             console.log("error");
@@ -38,7 +38,7 @@ const AddBlog = ({userBlog,setuserBlog}) => {
         }
         
     }
-
+            
   return (
     <div className="row d-flex justify-content-center">
       <h2  className="d-flex align-items-center justify-content-center Edit-Content">Add Blog</h2>

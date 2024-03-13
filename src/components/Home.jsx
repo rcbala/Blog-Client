@@ -13,7 +13,7 @@ const Home = (props) => {
         }
         let token = localStorage.getItem("token");
         const fetchData = async () => {
-            const res = await fetch("http://localhost:3000/blog/notes/all", {
+            const res = await fetch("https://capstone-1-vpgi.onrender.com/blog/notes/all", {
                 method: "GET",
                 headers: {
                     "x-auth-token": token,

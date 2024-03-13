@@ -20,7 +20,7 @@ const Login = () => {
       email,
       password,
     };
-    const res = await fetch("http://localhost:3000/blog/user/login", {
+    const res = await fetch("https://capstone-1-vpgi.onrender.com/blog/user/login", {
       method: "post",
       body: JSON.stringify(payload),
       headers: {

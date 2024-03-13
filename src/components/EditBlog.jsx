@@ -34,7 +34,7 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
             description,
         }
 
-        const res = await fetch(`http://localhost:3000/blog/notes/update/blog/${id}`, {
+        const res = await fetch(`https://capstone-1-vpgi.onrender.com/blog/notes/update/blog/${id}`, {
             
             method: "PUT",
             body: JSON.stringify(newBlog),

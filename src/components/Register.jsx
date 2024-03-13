@@ -15,7 +15,7 @@ const Register = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/blog/user/signup', {
+      const response = await axios.post('https://capstone-1-vpgi.onrender.com/blog/user/signup', {
         username, 
         email,
         password,

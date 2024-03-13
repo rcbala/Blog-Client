@@ -38,7 +38,7 @@ const Navbar = () => {
         
           <Col xs={1} md={1}>
             <Nav.Link as={Link} to="/User">
-              <Image src='./images.png' roundedCircle style={{ width: '40px' }} />
+              <Image src='' roundedCircle style={{ width: '40px' }} />
               </Nav.Link>
         </Col>
         </Nav>

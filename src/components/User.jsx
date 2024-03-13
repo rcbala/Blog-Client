@@ -12,7 +12,7 @@ const User = ({ userBlog, setuserBlog }) => {
     }
  
     const fetchUserData = async () => {
-      const res = await fetch("http://localhost:3000/blog/notes/user/data", {
+      const res = await fetch("https://capstone-1-vpgi.onrender.com/blog/notes/user/data", {
         method: "GET",
         headers: {
           "x-auth-token": token,
