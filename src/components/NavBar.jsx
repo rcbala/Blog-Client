@@ -4,7 +4,7 @@ import { Navbar as BootstrapNavbar, Button, Nav } from 'react-bootstrap';
 import './NavBar.css'; 
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import images from "../../public/images.png"
+import images from "../images/images.png"
 
 const Navbar = () => {
   const navigate = useNavigate()
