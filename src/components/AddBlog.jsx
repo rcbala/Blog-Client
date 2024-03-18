@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddBlog = ({userBlog,setuserBlog}) => {
   const navigate = useNavigate();
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/Login", { replace: true });
@@ -13,8 +14,8 @@ const AddBlog = ({userBlog,setuserBlog}) => {
   const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     
-    const handleAddBlog = async () => {
-        
+    const handleAddBlog = async (e) => {
+              e.preventDefault()
         const newBlog = {
             title,
             description,
@@ -29,15 +30,18 @@ const AddBlog = ({userBlog,setuserBlog}) => {
                 "x-auth-token": token,
             }
         })
-                   
+                console.log("datasend");
+      navigate('/')    
+      console.log("navigate from");
         const data = await res.json();
         if (!data.data) {
             console.log("error");
         } else {
             setuserBlog([...userBlog, data.data]);
         }
-        
-    }
+            
+  }
+          
             
   return (
     <div className="row d-flex justify-content-center">
