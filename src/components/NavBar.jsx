@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Navbar, Nav, Container,Dropdown} from 'react-bootstrap';
-import './Navbar.css';
+import './NavBar.css';
 import images from "../images/download.jpeg"
 import { Link, useNavigate } from 'react-router-dom';
 

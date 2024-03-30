@@ -16,6 +16,7 @@ const Register = () => {
   const [usernameValid, setUsernameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
+  
 
   const handleUserNameValid = (e) => {
     const UsernameValue = e.target.value;
@@ -94,7 +95,7 @@ const Register = () => {
             type="text"
             placeholder="Username"
             value={username}
-            // onChange={(e) => setUsername(e.target.value)}
+      
             onChange={handleUserNameValid}
                   />
                   
@@ -105,7 +106,7 @@ const Register = () => {
             type="email"
             placeholder="Email"
             value={email}
-            // onChange={(e) => setEmail(e.target.value)}
+           
             onChange={handleEmailValid}
           />
         </Form.Group>
@@ -115,7 +116,7 @@ const Register = () => {
             type="password"
             placeholder="Password"
             value={password}
-            // onChange={(e) => setPassword(e.target.value)}
+            
             onChange={handlePasswordValid}
           />
         </Form.Group>
@@ -136,9 +137,7 @@ const Register = () => {
                         <FaUserPlus /> Signup
                     </Button>
                 )}
-        {/* <Button onClick={handleSignup} variant="primary" className='signup-button '>
-          <FaUserPlus /> Signup
-              </Button>  */}
+        
       <p className="mt-3 Login">
           Already have an account? <Link to="/login">Login here</Link>
         </p>
