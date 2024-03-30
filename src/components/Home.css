@@ -3,64 +3,74 @@
   margin-left: 400px;
   border-radius: 10px;
   margin-top: 20px;
-  border-color: aliceblue;
-  border-radius: 4em 0;
-  background-color: transparent;
+  border-color: rgb(17, 17, 18);
+
+  background-color: whitesmoke;
   transition: all 0.3s;
+    box-shadow: 1px 10px 4px rgba(0, 0, 0, 0.1);
 }
 .home-container:hover{
   /* background-color: black; */
-  transform: scale(1.15);
+  transform: scale(1.09);
 }
 .title {
-  font-family: "Playfair Display", serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color:whitesmoke;
+  color:rgb(10, 10, 10);
 
   font-variant: small-caps;
 }
 .description {
-  font-family: "Bebas Neue", sans-serif;
+    font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color:whitesmoke;
+  color:rgb(7, 7, 7);
 
   font-variant: small-caps;
 }
 .username {
-  font-family: "Lilita One", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: small;
   font-weight: 600;
-  color:whitesmoke;
+  color:rgb(144, 141, 141);
   text-align: end;
-  font-variant: small-caps;
+  /* font-variant: small-caps; */
 }
 .date {
   font-weight: 500;
-  color:whitesmoke;
+  color:rgb(107, 105, 105);
   text-align: right;
 }
 
 .Button-User{
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
+  margin-left: 20px;
 
 }
 .USER-Edit{
   border-radius: 10px;
+  margin-right: 10px;
 }
 .Edit-Content{
+    font-family: "Poppins", sans-serif;
   font-variant: small-caps;
-  color: whitesmoke;
+  font-weight: 500;
+  color: #0c0c0c;
+  margin-top: 10px;
 }
 .User-Blog{
   font-variant: small-caps;
-  color: whitesmoke;
-  font-family: 'Lemon', serif;
-  font-weight: 900;
+  color: rgb(12, 12, 12);
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+  font-weight: 500;
   
 }
 @media (max-width: 991.98px) {
   .home-container {
+    width: 70%;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 50px;
     justify-items: center;
   }
 }

@@ -3,16 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import './Home.css'
 import Footer from './Footer';
+import LoadingPage from './LoadingPage';
 
 const Home = (props) => {
     const [blog, setBlog] = useState();
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
         if (!localStorage.getItem("token")) {
-            navigate("/Login",{replace: true})
+            navigate("/Login", { replace: true })
         }
         let token = localStorage.getItem("token");
-        const fetchData = async () => {
+          const fetchData = async () => {
+        try {
             const res = await fetch("https://capstone-1-vpgi.onrender.com/blog/notes/all", {
                 method: "GET",
                 headers: {
@@ -25,11 +28,23 @@ const Home = (props) => {
                 
             } else {
                 setBlog(data.data);
-            }
+                
+            }  } catch (error) {
+               console.error("Error fetching data",data.error)
+        } finally {
+            setLoading(false)
+        }
+      
+            
+          
         };
         fetchData();
         
-    }, [])
+    }, []);
+
+    if (loading) {
+         return<LoadingPage />
+     }
     
     return (
 
@@ -42,7 +57,7 @@ const Home = (props) => {
           <Card.Body>
             <Card.Title><h2 className='title'>{data.title}:</h2></Card.Title>
             <Card.Text><p className='description'>{data.description }</p></Card.Text>
-                  <Card.Text><h6 className='username'>Posted By:{data.user.username}</h6></Card.Text>
+                  <Card.Text><h6 className='username'>posted by:{data.user.username}</h6></Card.Text>
                 <Card.Text><p className='date'>{data.date }</p></Card.Text>
 
           </Card.Body>

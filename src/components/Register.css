@@ -1,19 +1,17 @@
 
-.container {
+.register-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 100px auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #FFDEE9;
     background-image: linear-gradient(211deg, #FFDEE9 0%, #B5FFFC 100%);
+        box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.1);
 }
 
 .SignUp {
-    font-style: italic;
-    font-weight: 900;
+    font-family: "Poppins", sans-serif;
     font-variant: small-caps;
+        font-weight: 800;
+        font-style: normal;
 
 }
 
@@ -24,19 +22,18 @@
 
 
 
-button {
-    width: 100%;
+.signup-button {
+    width: 50%;
     padding: 10px;
     border: none;
-    border-radius: 3px;
     cursor: pointer;
-    background-color: #007bff;
+    border-radius: 30px;
     margin-top: 20px;
 
 }
 
-button:hover {
-    background-color: #a9daf2;
+.signup-button:hover {
+background-color: #7dcce2;
 
 }
 
@@ -53,9 +50,3 @@ button:hover {
     font-weight: 900;
 }
 
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}

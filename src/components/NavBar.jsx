@@ -1,52 +1,55 @@
-import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Navbar as BootstrapNavbar, Button, Nav } from 'react-bootstrap';
-import './NavBar.css'; 
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import images from "../images/images.png"
 
-const Navbar = () => {
+
+import React from 'react';
+import { Navbar, Nav, Container,Dropdown} from 'react-bootstrap';
+import './Navbar.css';
+import images from "../images/download.jpeg"
+import { Link, useNavigate } from 'react-router-dom';
+
+const BlogNavbar = (props) => {
+
   const navigate = useNavigate()
-  
   const handleLogout = () => {
     localStorage.removeItem('token')
     navigate("/Login")
   }
-  return (
-    <BootstrapNavbar  bg="dark"   className="mb-4 nav sticky-top">
-      <BootstrapNavbar.Brand as={Link} to="/">
-        <h2 className='logo'>Rc Tech</h2>
-      </BootstrapNavbar.Brand>
-      <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
-      <BootstrapNavbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          <Nav.Link as={Link} to="/Register">
-          <h6 className='nav-link-hover'>Register</h6>  
-          </Nav.Link>
-          <Nav.Link as={Link} to="/login">
-              <h6  className='nav-link-hover'>Login</h6>
-          </Nav.Link>
-          <Nav.Link as={Link} to="/">
-              <h6  className='nav-link-hover'>Home</h6>
-          </Nav.Link>
-          <Nav.Link as={Link} to="/Add/Blog">
-              <h6  className='nav-link-hover'>AddBlog</h6>
-          </Nav.Link>
-            <Nav.Link onClick={handleLogout}>
-              <h6  className='nav-link-hover'>Logout</h6>
-          </Nav.Link>
-        
-          <Col xs={1} md={1}>
-            <Nav.Link as={Link} to="/User">
-              <Image src={images} roundedCircle style={{ width: '40px' }} />
-              </Nav.Link>
-        </Col>
-        </Nav>
-      </BootstrapNavbar.Collapse>
-    
-    </BootstrapNavbar>
-  );
+    return (
+
+
+
+    <Navbar  bg="white" variant="light" expand="lg" className='Blog-MyNavbar sticky-top'>
+      <Container>
+        <Navbar.Brand as={Link } to="/" className=" custom-nav-head">BLOG APP</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto custom-nav">
+              <Nav.Link as={Link } to="/" className="custom-nav-link">Home</Nav.Link>
+             
+             </Nav>
+                        <Nav className='ms-auto'>
+                        <Dropdown >
+                        
+              <Dropdown.Toggle id="dropdown-custom" className="custom-dropdown-toggle">
+                <img src={images} alt="Dropdown" className="rounded-circle dropdown-image" />
+                            </Dropdown.Toggle>
+                                <Dropdown.Header className="nav-link1">My Account</Dropdown.Header>
+              <Dropdown.Menu className="custom-dropdown-menu">
+                  <Dropdown.Item as={Link } to="/User" className="custom-nav-link1">ACCOUNT</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/Add/Blog" className="custom-nav-link1">ADD BLOG</Dropdown.Item>
+                   <Dropdown.Item as={Link} to="/" className="custom-nav-link1">HOME</Dropdown.Item>
+                  <Dropdown.Item  onClick={handleLogout } className="custom-nav-link2">LOG OUT</Dropdown.Item>
+               
+              </Dropdown.Menu>
+            </Dropdown>
+                         </Nav> 
+         
+       
+     
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+    );
 };
 
-export default Navbar;
+export default BlogNavbar;

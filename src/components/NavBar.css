@@ -1,39 +1,67 @@
+.Blog-MyNavbar {
 
-.nav{
-   
-        /* background-image: linear-gradient(253deg, #85c0dc 0%, #80D0C7 100%); */
-        /* border: 1px solid black; */
-    
-           
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 
 
 }
-.logo{
-font-family: 'Rubik Doodle Shadow', system-ui;
-    font-family: 'Rubik Doodle Triangles', system-ui;
-   font-variant: small-caps;
-    text-shadow: 2px 2px #ad5252;
-    
-   
-}
-.nav-link-hover{
-    font-family: 'Playfair Display', serif;
+
+.custom-nav-head {
+    font-family: "Poppins", sans-serif;
     font-weight: 800;
-    color:whitesmoke;
-
-    font-variant: small-caps;
-}
-.nav-link-hover:hover {
-    color:rgb(229, 14, 14) ;
-    transition: color 0.1s ease;
-    
-    
+    font-style: normal;
 }
 
+.custom-nav-link {
 
-@media (max-width: 991.98px) {
-    .navbar-nav {
-margin-top: 10px;
-    margin-left: 20px;
-    justify-items: center;    }
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+.dropdown-image {
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
+
+}
+
+
+.custom-dropdown-toggle {
+    background-color: transparent !important;
+
+}
+
+.dropdown-toggle {
+    border: none !important;
+
+}
+
+
+.nav-link1 {
+    font-size: small;
+    font-family: "Poppins", sans-serif;
+}
+.custom-nav-link1{
+
+    font-family: "Poppins", sans-serif;
+    font-size: medium;   
+        font-weight: 500;
+        color: rgb(59, 59, 59);
+}
+.custom-nav-link1:hover{
+ 
+    color: rgb(244, 243, 243);
+    background-color: rgb(146, 189, 232);
+}
+.custom-nav-link2{
+    font-family: "Poppins", sans-serif;
+        font-size: medium;
+        font-weight: 500;
+    color: rgb(59, 59, 59);
+}
+.custom-nav-link2:hover{
+    color: aliceblue;
+    background-color: red;
 }

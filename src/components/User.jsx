@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
-import { Button, Card } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Alert, Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import "./Home.css";
 
 const User = ({ userBlog, setuserBlog }) => {
   const navigate = useNavigate();
+ 
+ 
    let token = localStorage.getItem("token");
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -12,6 +15,7 @@ const User = ({ userBlog, setuserBlog }) => {
     }
  
     const fetchUserData = async () => {
+        
       const res = await fetch("https://capstone-1-vpgi.onrender.com/blog/notes/user/data", {
         method: "GET",
         headers: {
@@ -29,7 +33,7 @@ const User = ({ userBlog, setuserBlog }) => {
   }, []);
     
     async function handleDelete(id) {
-       
+        setLoading(true)
         const res = await fetch(`https://capstone-1-vpgi.onrender.com/blog/notes/delete/blog/${id}`, {
             method: "DELETE",
             headers: {
@@ -39,27 +43,41 @@ const User = ({ userBlog, setuserBlog }) => {
         })
         const data = await res.json()
         const newUserBlog = userBlog.filter((data) => data._id !== id)
-        setuserBlog([...newUserBlog]);
-        console.log(data);
-    }
+      setuserBlog([...newUserBlog]);
+      if (res.ok) {
+       toast.success("Blog Deleted Successfully")
+      } else {
+        toast.error("Failed to Blog Deleted")
+        
+      }
+      
+      console.log(data);
 
+      
+      
+      
+    }     
+  
   return (
     <div>
+      <ToastContainer/>
       <div>
-        <h1 className="d-flex align-items-center justify-content-center User-Blog">
+        <h2 className="d-flex align-items-center justify-content-center User-Blog">
           USER BLOG
-        </h1>
+        </h2>
           <div className="d-flex align-items-center justify-content-center">
         <Button
           className=" col-lg-1 "
           variant="outline-primary"
-          // size="lg"
+          
           onClick={() => navigate("/Add/Blog")}
         >
           ADD Blog
           </Button>
           </div>
       </div>
+
+      
 
       {userBlog && (
         <div>
@@ -79,7 +97,7 @@ const User = ({ userBlog, setuserBlog }) => {
                   <p className="date">{data.date}</p>
                 </Card.Text>
               </Card.Body>
-              <div className="mb-2 ">
+              <div className="mb-2  ">
                 <div className="Button-User">
                           <Button
                               className="USER-Edit"
@@ -101,6 +119,7 @@ const User = ({ userBlog, setuserBlog }) => {
           ))}
         </div>
       )}
+     
     </div>
   );
 };

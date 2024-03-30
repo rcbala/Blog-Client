@@ -1,9 +1,8 @@
-
-
 .Login {
-    font-style: italic;
-    font-weight: 900;
-    font-variant: small-caps;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    margin-bottom: 50px;
 }
 
 
@@ -15,17 +14,17 @@
     box-sizing: border-box;
 }
 
-Button {
+.login-buttton {
+    margin-top: 10px;
     width: 50%;
     padding: 10px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    background-color: #b9dcc8;
     color: white;
 }
 
-Button:hover {
+.login-buttton:hover {
     background-color: #4d27ae;
 }
 
@@ -34,8 +33,16 @@ Button:hover {
     margin-bottom: 10px;
 }
 
-.forgot a {
-    text-decoration: none;
+.Login_form {
+    max-width: 400px;
+    /* height: 60vh; */
+    margin: 100px auto;
+    padding: 20px;
+    background-image: linear-gradient(211deg, #FFDEE9 0%, #B5FFFC 100%);
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.1);
 
 }
-
+.signup-here a{
+    text-decoration: none;
+font-family: "Poppins", sans-serif;
+}

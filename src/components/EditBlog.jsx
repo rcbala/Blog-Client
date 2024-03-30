@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Home.css'
 
@@ -9,7 +9,8 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
    let token=localStorage.getItem("token")
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [id,setId] = useState("")
+  const [loading,setLoading]=useState(false)
+  const [id, setId] = useState("");
   console.log(userBlog);
     let [state]=useSearchParams()
   useEffect(() => {
@@ -28,7 +29,7 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
   const handleEditBlog = async (e) => {
        
     e.preventDefault()
-        
+        setLoading(true)
         const newBlog = {
             title,
             description,
@@ -43,18 +44,20 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
                 "x-auth-token": token,
             }
         })
+           navigate('/User')
 
         const data = await res.json();
     
         if (!data.data) {
             console.log("error");
         } else {
-            setuserBlog([...userBlog, data.data]);
+          setuserBlog([...userBlog, data.data]);
+          setLoading(false)
         }
     }
     return (
         <div className="row d-flex justify-content-center">
-      <h2 className="d-flex align-items-center justify-content-center Edit-Content">Edit Blog</h2>
+      <h2 className="d-flex align-items-center justify-content-center Edit-Content">edit blog</h2>
       <Form className="mb-3 col-lg-6">
           <Form.Group controlId="formTitle" className="mt-5 mb-3">
            <h2 className='mb-2 Edit-Content'> Title:</h2>
@@ -76,8 +79,19 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </Form.Group>
-                <Button variant="primary" type="submit" onClick={ handleEditBlog}>
-          Update
+               <Button
+            variant="primary"
+            className='mt-4'
+          onClick={handleEditBlog}
+          disabled={loading}
+        >
+          {loading ? (
+            <>
+              <Spinner animation="border" size="sm" role="status" /> Updating
+            </>
+          ) : (
+            "Update"
+          )}
         </Button>
       </Form>
     </div>
