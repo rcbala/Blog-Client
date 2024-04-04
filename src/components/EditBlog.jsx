@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button, Spinner } from "react-bootstrap";
+import { Form, Button, Spinner, Alert } from "react-bootstrap";
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Home.css'
 
@@ -11,6 +11,8 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
   const [description, setDescription] = useState("");
   const [loading,setLoading]=useState(false)
   const [id, setId] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [validationError,setValidationError]=useState(false)
   console.log(userBlog);
     let [state]=useSearchParams()
   useEffect(() => {
@@ -29,13 +31,19 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
   const handleEditBlog = async (e) => {
        
     e.preventDefault()
-        setLoading(true)
+    if (!title.trim() || !description.trim()) {
+      setValidationError(true);
+      setErrorMessage("Please Fill in all fields");
+      return;
+     }
+    setLoading(true)
+    setValidationError(false)
         const newBlog = {
             title,
             description,
-        }
-
-        const res = await fetch(`https://capstone-1-vpgi.onrender.com/blog/notes/update/blog/${id}`, {
+    }
+     try {
+       const res = await fetch(`https://capstone-1-vpgi.onrender.com/blog/notes/update/blog/${id}`, {
             
             method: "PUT",
             body: JSON.stringify(newBlog),
@@ -49,11 +57,18 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
         const data = await res.json();
     
         if (!data.data) {
-            console.log("error");
+            console.log("Error updating blog");
         } else {
           setuserBlog([...userBlog, data.data]);
-          setLoading(false)
+         
         }
+     } catch (error) {
+       console.error("Error Updating blog",error)
+     } finally {
+        setLoading(false)
+     }
+
+       
     }
     return (
         <div className="row d-flex justify-content-center">
@@ -78,7 +93,8 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
             placeholder="Add Description"
             onChange={(e) => setDescription(e.target.value)}
           />
-        </Form.Group>
+          </Form.Group>
+          {validationError && <Alert variant='danger'>{errorMessage}</Alert>}
                <Button
             variant="primary"
             className='mt-4'
@@ -99,3 +115,4 @@ const EditBlog = ({ userBlog, setuserBlog }) => {
 };
 
 export default EditBlog;
+

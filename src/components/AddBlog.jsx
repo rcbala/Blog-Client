@@ -31,7 +31,7 @@ const AddBlog = ({userBlog,setuserBlog}) => {
       setLoading(true);
       setError("");
       setSuccessMsessage("");
-      console.log("Before setting success message");
+    
         
 
         const newBlog = {

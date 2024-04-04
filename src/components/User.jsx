@@ -33,7 +33,7 @@ const User = ({ userBlog, setuserBlog }) => {
   }, []);
     
     async function handleDelete(id) {
-        setLoading(true)
+        
         const res = await fetch(`https://capstone-1-vpgi.onrender.com/blog/notes/delete/blog/${id}`, {
             method: "DELETE",
             headers: {
